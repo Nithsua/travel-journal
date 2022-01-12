@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import journals from "./data";
+import Journal from "./components/Journal";
+import globe from "./images/globe.png";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="app">
+      <header className="app-header">
+        <img
+          src={globe}
+          style={{ width: "24px", height: "24px", paddingRight: "5px" }}
+        />
+        <h4 className="header-title">My Travel Journal</h4>
       </header>
+      <main className="main">
+        {journals.map((v, i) => {
+          console.log(v);
+          return <Journal key={i} {...v} />;
+        })}
+      </main>
     </div>
   );
 }
